@@ -18,6 +18,7 @@ public class Main {
         for (int e : arr) {
             System.out.println(e);
         }
+        
         System.out.println();
         System.out.println("Task 3");
         Random random = new Random();
@@ -25,7 +26,7 @@ public class Main {
         int player1Score = 0;
         int player2Score = 0;
 
-        while (player1Score != 10 && player2Score != 10) {
+        while (player1Score < 10 && player2Score < 10) {
             File file = new File("results.txt");
             FileWriter fileWriter = new FileWriter("results.txt");
             FileReader fileReader = new FileReader("results.txt");
