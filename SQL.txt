@@ -1,0 +1,28 @@
+задача 1
+
+delimiter $$
+
+create function func1 (employeeid int, tipsDate datetime, tipsAmount int)
+return float
+deterministic
+begin
+    declare avgTips float;
+
+    insert into tips(employee_id, date, amount) values(employeeid, tipsDate, tipsAmount);
+
+    select sum(amount) into avgTips from tips where employee_id = employeeid;
+
+    return avgTips
+
+end $$
+
+
+задача 2
+
+delimiter $$
+
+create procedure proc(year1 int, year2 int)
+begin
+    select pl.name as language_name, author_name, creation_date, biography from programming_languages pl inner join aouthors a on pl.id = a.language_id where creation_date between year(year1) and (year2) order by creation_date desc; 
+
+end $$    
